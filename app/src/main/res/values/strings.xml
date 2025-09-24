@@ -10,4 +10,27 @@
     <string name="cancel_button">取消</string>
     <string name="ok_button">好的</string>
     <string name="retry_button">重试</string>
+    
+    <!-- Order Confirmation Strings -->
+    <string name="order_confirmation">签收确认</string>
+    <string name="order_time_label">订单时间：</string>
+    <string name="supplier_label">供货单位：</string>
+    <string name="product_count_label">商品数量：</string>
+    <string name="verified_count_label">签收数量：</string>
+    <string name="return_count_label">退货数量：</string>
+    <string name="order_total_label">订单总额：</string>
+    <string name="verified_total_label">复核总额：</string>
+    <string name="brand_label">品牌：</string>
+    <string name="quality_label">质量等级：</string>
+    <string name="unit_price_label">单价：</string>
+    <string name="origin_label">产地：</string>
+    <string name="packaging_label">包装规格：</string>
+    <string name="order_quantity_label">订单数量：</string>
+    <string name="verified_quantity_label">复核数量：</string>
+    <string name="order_amount_label">订单金额：</string>
+    <string name="verified_amount_label">复核金额：</string>
+    <string name="product_photo">商品照片</string>
+    <string name="package_photo">包装照片</string>
+
+
 </resources>
