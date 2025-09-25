@@ -16,19 +16,19 @@ import androidx.core.content.ContextCompat;
 public class ScaleDashboardView extends View {
     
     // Dashboard dimensions and positioning
-    private static final float DASHBOARD_SIZE = 600f; // Reduced from 900dp to fit screen better
+    private static final float DASHBOARD_SIZE = 866.97f; // 0.9x scale (963.3 * 0.9)
     private static final float CENTER_X = DASHBOARD_SIZE / 2f;
     private static final float CENTER_Y = DASHBOARD_SIZE / 2f;
-    private static final float OUTER_RADIUS = 280f; // Scaled proportionally (420 * 600/900)
-    private static final float INNER_RADIUS = 260f; // Scaled proportionally (390 * 600/900)
-    private static final float MAJOR_TICK_LENGTH = 25f; // Scaled proportionally (37.5 * 600/900)
-    private static final float MINOR_TICK_LENGTH = 15f; // Scaled proportionally (22.5 * 600/900)
+    private static final float OUTER_RADIUS = 404.59f; // 0.9x scale (449.54 * 0.9)
+    private static final float INNER_RADIUS = 375.69f; // 0.9x scale (417.43 * 0.9)
+    private static final float MAJOR_TICK_LENGTH = 36.13f; // 0.9x scale (40.14 * 0.9)
+    private static final float MINOR_TICK_LENGTH = 21.67f; // 0.9x scale (24.08 * 0.9)
     
     // Needle properties
-    private static final float NEEDLE_LENGTH = 220f; // Scaled proportionally (320 * 600/900)
-    private static final float NEEDLE_WIDTH = 8f; // Scaled proportionally (12 * 600/900)
-    private static final float NEEDLE_BASE_RADIUS = 20f; // Scaled proportionally (30 * 600/900)
-    private static final float TINY_TICK_LENGTH = 8f; // Scaled proportionally (12 * 600/900)
+    private static final float NEEDLE_LENGTH = 317.89f; // 0.9x scale (353.21 * 0.9)
+    private static final float NEEDLE_WIDTH = 11.56f; // 0.9x scale (12.84 * 0.9)
+    private static final float NEEDLE_BASE_RADIUS = 28.9f; // 0.9x scale (32.11 * 0.9)
+    private static final float TINY_TICK_LENGTH = 11.56f; // 0.9x scale (12.84 * 0.9)
     
     // Scale properties
     private static final float START_ANGLE = 135f; // Start from top-left (0kg)
@@ -97,7 +97,7 @@ public class ScaleDashboardView extends View {
         circlePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         circlePaint.setColor(scaleGreen);
         circlePaint.setStyle(Paint.Style.STROKE);
-        circlePaint.setStrokeWidth(12f); // Scaled proportionally (18 * 600/900)
+        circlePaint.setStrokeWidth(17.34f); // 0.9x scale (19.27 * 0.9)
         circlePaint.setStrokeCap(Paint.Cap.ROUND); // Smooth end caps
         circlePaint.setFilterBitmap(true);
         circlePaint.setDither(true);
@@ -107,7 +107,7 @@ public class ScaleDashboardView extends View {
         majorTickPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         majorTickPaint.setColor(scaleGreen);
         majorTickPaint.setStyle(Paint.Style.STROKE);
-        majorTickPaint.setStrokeWidth(6f); // Scaled proportionally (9 * 600/900)
+        majorTickPaint.setStrokeWidth(8.67f); // 0.9x scale (9.63 * 0.9)
         majorTickPaint.setStrokeCap(Paint.Cap.ROUND);
         majorTickPaint.setFilterBitmap(true);
         majorTickPaint.setDither(true);
@@ -116,7 +116,7 @@ public class ScaleDashboardView extends View {
         minorTickPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         minorTickPaint.setColor(scaleGreen);
         minorTickPaint.setStyle(Paint.Style.STROKE);
-        minorTickPaint.setStrokeWidth(3f); // Scaled proportionally (4.5 * 600/900)
+        minorTickPaint.setStrokeWidth(4.34f); // 0.9x scale (4.82 * 0.9)
         minorTickPaint.setStrokeCap(Paint.Cap.ROUND);
         minorTickPaint.setFilterBitmap(true);
         minorTickPaint.setDither(true);
@@ -125,7 +125,7 @@ public class ScaleDashboardView extends View {
         tinyTickPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         tinyTickPaint.setColor(scaleGreen);
         tinyTickPaint.setStyle(Paint.Style.STROKE);
-        tinyTickPaint.setStrokeWidth(1.5f); // Scaled proportionally (2.25 * 600/900)
+        tinyTickPaint.setStrokeWidth(2.17f); // 0.9x scale (2.41 * 0.9)
         tinyTickPaint.setStrokeCap(Paint.Cap.ROUND);
         tinyTickPaint.setFilterBitmap(true);
         tinyTickPaint.setDither(true);
@@ -147,7 +147,7 @@ public class ScaleDashboardView extends View {
         // Text paint
         textPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         textPaint.setColor(scaleGreen); // Match scale markings color
-        textPaint.setTextSize(20f); // Scaled proportionally (30 * 600/900)
+        textPaint.setTextSize(28.9f); // 0.9x scale (32.11 * 0.9)
         textPaint.setTextAlign(Paint.Align.CENTER);
         textPaint.setTypeface(android.graphics.Typeface.DEFAULT);
         textPaint.setFilterBitmap(true);
@@ -233,11 +233,11 @@ public class ScaleDashboardView extends View {
             }
             
             // Calculate tick mark positions (from outer edge inward)
-            float outerX = CENTER_X + (OUTER_RADIUS - 9) * (float) Math.cos(angleRad); // Adjusted for larger stroke
-            float outerY = CENTER_Y + (OUTER_RADIUS - 9) * (float) Math.sin(angleRad);
+            float outerX = CENTER_X + (OUTER_RADIUS - 10.01f) * (float) Math.cos(angleRad); // Adjusted for larger stroke (11.12 * 0.9)
+            float outerY = CENTER_Y + (OUTER_RADIUS - 10.01f) * (float) Math.sin(angleRad);
             
-            float innerX = CENTER_X + (OUTER_RADIUS - 9 - tickLength) * (float) Math.cos(angleRad);
-            float innerY = CENTER_Y + (OUTER_RADIUS - 9 - tickLength) * (float) Math.sin(angleRad);
+            float innerX = CENTER_X + (OUTER_RADIUS - 10.01f - tickLength) * (float) Math.cos(angleRad);
+            float innerY = CENTER_Y + (OUTER_RADIUS - 10.01f - tickLength) * (float) Math.sin(angleRad);
             
             // Draw tick mark
             canvas.drawLine(outerX, outerY, innerX, innerY, tickPaint);
@@ -252,8 +252,8 @@ public class ScaleDashboardView extends View {
     private void drawTickNumber(Canvas canvas, int value, float angle) {
         float angleRad = (float) Math.toRadians(angle);
         
-        // Position text further inside from the tick marks - scaled proportionally
-        float textRadius = OUTER_RADIUS - 55f; // Scaled proportionally (80 * 600/900)
+        // Position text further inside from the tick marks - 0.9x scale
+        float textRadius = OUTER_RADIUS - 79.47f; // 0.9x scale (88.3 * 0.9)
         float textX = CENTER_X + textRadius * (float) Math.cos(angleRad);
         float textY = CENTER_Y + textRadius * (float) Math.sin(angleRad);
         
@@ -285,15 +285,15 @@ public class ScaleDashboardView extends View {
         float needleHalfWidth = NEEDLE_WIDTH / 2f;
         needlePath.moveTo(CENTER_X - needleHalfWidth, CENTER_Y);
         needlePath.lineTo(CENTER_X + needleHalfWidth, CENTER_Y);
-        needlePath.lineTo(CENTER_X + needleHalfWidth, CENTER_Y - NEEDLE_LENGTH + 30f);
-        needlePath.lineTo(CENTER_X - needleHalfWidth, CENTER_Y - NEEDLE_LENGTH + 30f);
+        needlePath.lineTo(CENTER_X + needleHalfWidth, CENTER_Y - NEEDLE_LENGTH + 33.35f); // 0.9x scale (37.05 * 0.9)
+        needlePath.lineTo(CENTER_X - needleHalfWidth, CENTER_Y - NEEDLE_LENGTH + 33.35f);
         needlePath.close();
         
         // Needle tip (triangle with smooth curves)
         Path needleTip = new Path();
         needleTip.moveTo(CENTER_X, CENTER_Y - NEEDLE_LENGTH);
-        needleTip.lineTo(CENTER_X - needleHalfWidth - 5f, CENTER_Y - NEEDLE_LENGTH + 30f);
-        needleTip.lineTo(CENTER_X + needleHalfWidth + 5f, CENTER_Y - NEEDLE_LENGTH + 30f);
+        needleTip.lineTo(CENTER_X - needleHalfWidth - 5.56f, CENTER_Y - NEEDLE_LENGTH + 33.35f); // 0.9x scale (6.18 * 0.9 = 5.56, 37.05 * 0.9 = 33.35)
+        needleTip.lineTo(CENTER_X + needleHalfWidth + 5.56f, CENTER_Y - NEEDLE_LENGTH + 33.35f);
         needleTip.close();
         
         // Draw needle with enhanced paint

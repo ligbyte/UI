@@ -11,26 +11,27 @@
     tools:context=".WeighingActivity">
 
     <!-- Left Side - Scale Display -->
-    <LinearLayout
+    <FrameLayout
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1.8"
         android:orientation="vertical"
         android:gravity="center"
-        android:padding="40dp"
+        android:padding="10dp"
         android:background="@color/white">
 
         <!-- Scale Circle Container -->
         <FrameLayout
-            android:layout_width="600dp"
-            android:layout_height="600dp"
+            android:id="@+id/fl_dash"
+            android:layout_width="867dp"
+            android:layout_height="867dp"
             android:layout_gravity="center">
 
             <!-- Custom Java-drawn Scale Dashboard -->
             <com.example.ui.ScaleDashboardView
                 android:id="@+id/scale_dashboard"
-                android:layout_width="600dp"
-                android:layout_height="600dp"
+                android:layout_width="867dp"
+                android:layout_height="867dp"
                 android:layout_gravity="center" />
 
             <!-- Center Text -->
@@ -40,13 +41,13 @@
                 android:layout_gravity="center"
                 android:orientation="vertical"
                 android:gravity="center"
-                android:layout_marginTop="100dp">
+                android:layout_marginTop="145dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/net_weight"
-                    android:textSize="32sp"
+                    android:textSize="47sp"
                     android:textColor="@color/black"
                     android:textStyle="bold" />
 
@@ -55,10 +56,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="0.000 kg"
-                    android:textSize="40sp"
+                    android:textSize="59sp"
                     android:textColor="@color/black"
                     android:textStyle="bold"
-                    android:layout_marginTop="6dp" />
+                    android:layout_marginTop="8dp" />
 
             </LinearLayout>
 
@@ -66,10 +67,12 @@
 
         <!-- Status Indicators with Circles -->
         <LinearLayout
+            android:id="@+id/ll_weight_status"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="25dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="670dp"
             android:gravity="center">
 
             <!-- 稳定 -->
@@ -148,7 +151,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="30dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="690dp"
             android:gravity="center">
 
             <!-- Tare Weight (皮) -->
@@ -212,7 +216,7 @@
 
         </LinearLayout>
 
-    </LinearLayout>
+    </FrameLayout>
 
     <!-- Right Side - Input Panel -->
     <LinearLayout
