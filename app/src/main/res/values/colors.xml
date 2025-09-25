@@ -7,4 +7,9 @@
     <color name="text_gray">#FF666666</color>
     <color name="dialog_background">#FFFFFFFF</color>
     <color name="dialog_overlay">#99000000</color>
+    <color name="scale_green">#FF8BC34A</color>
+    <color name="scale_dark_green">#FF689F38</color>
+    <color name="scale_background">#FFF5F5F5</color>
+    <color name="keypad_background">#FFFFFFFF</color>
+    <color name="keypad_border">#FFE0E0E0</color>
 </resources>

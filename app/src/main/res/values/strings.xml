@@ -32,5 +32,20 @@
     <string name="product_photo">商品照片</string>
     <string name="package_photo">包装照片</string>
 
+    <!-- Weighing Activity Strings -->
+    <string name="net_weight">净重</string>
+    <string name="stable">稳定</string>
+    <string name="zero">零位</string>
+    <string name="tare_weight">皮</string>
+    <string name="gross_weight">总</string>
+    <string name="unit_price">单价:</string>
+    <string name="total_price">总价:</string>
+    <string name="unit_kg">元/kg</string>
+    <string name="unit_yuan">元</string>
+    <string name="btn_tare">去皮</string>
+    <string name="btn_zero">置零</string>
+    <string name="weight_format">%.3f kg</string>
+    <string name="price_format">%.2f</string>
+
 
 </resources>

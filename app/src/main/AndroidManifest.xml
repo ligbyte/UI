@@ -19,7 +19,7 @@
         
         <!-- Order Activity with landscape orientation -->
         <activity
-            android:name=".OrderActivity"
+            android:name=".WeighingActivity"
             android:exported="true"
             android:screenOrientation="landscape"
             android:configChanges="orientation|keyboardHidden|screenSize">
