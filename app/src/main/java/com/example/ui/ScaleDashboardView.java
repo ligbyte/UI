@@ -25,7 +25,7 @@ public class ScaleDashboardView extends View {
     private static final float MINOR_TICK_LENGTH = 22.5f; // Increased to 1.5x (15 * 1.5)
     
     // Needle properties
-    private static final float NEEDLE_LENGTH = 330f; // Increased to 1.5x (220 * 1.5)
+    private static final float NEEDLE_LENGTH = 320f; // Shortened by 10px from 330f to prevent overlap with scale text
     private static final float NEEDLE_WIDTH = 12f; // Increased to 1.5x (8 * 1.5)
     private static final float NEEDLE_BASE_RADIUS = 30f; // Increased to 1.5x (20 * 1.5)
     private static final float TINY_TICK_LENGTH = 12f; // Increased to 1.5x (8 * 1.5)
@@ -146,10 +146,10 @@ public class ScaleDashboardView extends View {
         
         // Text paint
         textPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        textPaint.setColor(textColor);
+        textPaint.setColor(scaleGreen); // Match scale markings color
         textPaint.setTextSize(30f); // Increased to 1.5x (20 * 1.5)
         textPaint.setTextAlign(Paint.Align.CENTER);
-        textPaint.setTypeface(android.graphics.Typeface.DEFAULT_BOLD);
+        textPaint.setTypeface(android.graphics.Typeface.DEFAULT);
         textPaint.setFilterBitmap(true);
         textPaint.setDither(true);
         textPaint.setSubpixelText(true); // Enable subpixel text rendering
