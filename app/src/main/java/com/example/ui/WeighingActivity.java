@@ -154,6 +154,11 @@ public class WeighingActivity extends AppCompatActivity {
             startPriceInput();
             return true;
         });
+        
+        // Add test click listener for weight display to test needle positioning
+        tvWeightDisplay.setOnClickListener(v -> {
+            testNeedlePositions();
+        });
     }
     
     private void setModeButtonSelection(Button selectedButton) {
@@ -172,15 +177,16 @@ public class WeighingActivity extends AppCompatActivity {
             public void run() {
                 if (!isStable && isSimulatingWeight) {
                     // Simulate weight fluctuation for 0-150kg scale
-                    double baseWeight = 2.0 + (random.nextDouble() * 25.0); // 2.0 to 27.0 kg
-                    double fluctuation = (random.nextDouble() - 0.5) * 0.2; // ±0.1 kg
-                    currentWeight = Math.max(0, baseWeight + fluctuation);
+                    // Generate weights across the full scale range for testing
+                    double baseWeight = random.nextDouble() * 150.0; // 0 to 150kg
+                    double fluctuation = (random.nextDouble() - 0.5) * 1.0; // ±0.5 kg
+                    currentWeight = Math.max(0, Math.min(150.0, baseWeight + fluctuation));
                     
                     updateWeightDisplays();
                     updateNeedlePosition();
                     calculateTotalPrice();
                     
-                    weightHandler.postDelayed(this, 200); // Update every 200ms
+                    weightHandler.postDelayed(this, 1000); // Update every 1000ms for easier observation
                 }
             }
         }, 200);
@@ -206,7 +212,7 @@ public class WeighingActivity extends AppCompatActivity {
     
     private void updateNeedlePosition() {
         // Update the custom dashboard view with current weight
-        scaleDashboard.animateToWeight((float) currentWeight, 150);
+        scaleDashboard.setWeight((float) currentWeight);
     }
     
     private void zeroScale() {
@@ -302,6 +308,22 @@ public class WeighingActivity extends AppCompatActivity {
     private void calculateTotalPrice() {
         totalPrice = currentWeight * unitPrice;
         updatePriceDisplays();
+    }
+    
+    private void testNeedlePositions() {
+        // Test key positions: 0kg, 75kg (middle), 150kg (max)
+        Handler testHandler = new Handler();
+        double[] testWeights = {0.0, 37.5, 75.0, 112.5, 150.0};
+        
+        for (int i = 0; i < testWeights.length; i++) {
+            final double testWeight = testWeights[i];
+            testHandler.postDelayed(() -> {
+                currentWeight = testWeight;
+                updateWeightDisplays();
+                updateNeedlePosition();
+                Toast.makeText(this, "测试重量: " + weightFormat.format(testWeight) + "kg", Toast.LENGTH_SHORT).show();
+            }, i * 2000); // 2 second intervals
+        }
     }
     
     @Override

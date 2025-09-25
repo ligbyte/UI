@@ -266,8 +266,9 @@ public class ScaleDashboardView extends View {
     
     private void drawNeedle(Canvas canvas) {
         // Calculate needle angle based on current weight
-        float needleAngle = START_ANGLE + (currentWeight / MAX_VALUE) * SWEEP_ANGLE;
-        float needleAngleRad = (float) Math.toRadians(needleAngle);
+        // Map weight (0-150kg) to angle range (135° to 405°, which is 135° to 45° wrapping around)
+        float progress = currentWeight / (float) MAX_VALUE;
+        float needleAngle = START_ANGLE + progress * SWEEP_ANGLE;
         
         // Save canvas state
         canvas.save();
@@ -328,6 +329,16 @@ public class ScaleDashboardView extends View {
      */
     public float getWeight() {
         return currentWeight;
+    }
+    
+    /**
+     * Test method to verify needle positioning at specific weights
+     * @param weight Test weight value
+     * @return Calculated angle for debugging
+     */
+    public float getAngleForWeight(float weight) {
+        float progress = weight / (float) MAX_VALUE;
+        return START_ANGLE + progress * SWEEP_ANGLE;
     }
     
     /**
