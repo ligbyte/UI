@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="300dp"
+    android:height="300dp"
+    android:viewportWidth="300"
+    android:viewportHeight="300">
+    
+    <!-- Main needle body - thick and wide like in design -->
+    <path
+        android:fillColor="@color/scale_green"
+        android:pathData="M140,150 L160,150 L155,50 L145,50 Z" />
+    
+    <!-- Needle tip - pointed arrow -->
+    <path
+        android:fillColor="@color/scale_green"
+        android:pathData="M150,50 L135,65 L165,65 Z" />
+    
+    <!-- Needle base circle - prominent center -->
+    <path
+        android:fillColor="@color/scale_dark_green"
+        android:pathData="M150,150 m-20,0 a20,20 0 1,0 40,0 a20,20 0 1,0 -40,0" />
+        
+    <!-- Inner highlight circle -->
+    <path
+        android:fillColor="@color/scale_green"
+        android:pathData="M150,150 m-14,0 a14,14 0 1,0 28,0 a14,14 0 1,0 -28,0" />
+    
+    <!-- Center dot -->
+    <path
+        android:fillColor="@color/scale_dark_green"
+        android:pathData="M150,150 m-6,0 a6,6 0 1,0 12,0 a6,6 0 1,0 -12,0" />
+        
+</vector>

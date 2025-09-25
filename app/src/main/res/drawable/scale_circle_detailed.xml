@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    
+    <!-- Outer circle background -->
+    <item>
+        <shape android:shape="oval">
+            <stroke
+                android:width="12dp"
+                android:color="@color/scale_green" />
+            <solid android:color="@color/white" />
+        </shape>
+    </item>
+    
+    <!-- Scale markings overlay -->
+    <item>
+        <vector
+            android:width="600dp"
+            android:height="600dp"
+            android:viewportWidth="600"
+            android:viewportHeight="600">
+            
+            <!-- Major tick marks (every 10 units) positioned close to circle edge -->
+            <!-- 0 position (bottom center) -->
+            <path
+                android:strokeColor="@color/scale_green"
+                android:strokeWidth="6"
+                android:pathData="M300,585 L300,565" />
+            
+            <!-- 20 position -->
+            <path
+                android:strokeColor="@color/scale_green"
+                android:strokeWidth="6"
+                android:pathData="M195,548 L210,532" />
+            
+            <!-- 40 position -->
+            <path
+                android:strokeColor="@color/scale_green"
+                android:strokeWidth="6"
+                android:pathData="M115,458 L135,448" />
+            
+            <!-- 60 position -->
+            <path
+                android:strokeColor="@color/scale_green"
+                android:strokeWidth="6"
+                android:pathData="M62,328 L82,323" />
+            
+            <!-- 80 position -->
+            <path
+                android:strokeColor="@color/scale_green"
+                android:strokeWidth="6"
+                android:pathData="M62,172 L82,177" />
+            
+            <!-- 100 position (top) -->
+            <path
+                android:strokeColor="@color/scale_green"
+                android:strokeWidth="6"
+                android:pathData="M115,42 L135,52" />
+            
+            <!-- 120 position -->
+            <path
+                android:strokeColor="@color/scale_green"
+                android:strokeWidth="6"
+                android:pathData="M195,52 L210,68" />
+            
+            <!-- 140 position -->
+            <path
+                android:strokeColor="@color/scale_green"
+                android:strokeWidth="6"
+                android:pathData="M300,15 L300,35" />
+            
+            <!-- Right side major ticks (mirror positions) -->
+            <path
+                android:strokeColor="@color/scale_green"
+                android:strokeWidth="6"
+                android:pathData="M405,52 L390,68" />
+            
+            <path
+                android:strokeColor="@color/scale_green"
+                android:strokeWidth="6"
+                android:pathData="M485,42 L465,52" />
+            
+            <path
+                android:strokeColor="@color/scale_green"
+                android:strokeWidth="6"
+                android:pathData="M538,172 L518,177" />
+            
+            <path
+                android:strokeColor="@color/scale_green"
+                android:strokeWidth="6"
+                android:pathData="M538,328 L518,323" />
+            
+            <path
+                android:strokeColor="@color/scale_green"
+                android:strokeWidth="6"
+                android:pathData="M485,458 L465,448" />
+            
+            <path
+                android:strokeColor="@color/scale_green"
+                android:strokeWidth="6"
+                android:pathData="M405,548 L390,532" />
+            
+            <!-- Right side major ticks (mirror of left side) -->
+            <path
+                android:strokeColor="@color/scale_green"
+                android:strokeWidth="6"
+                android:pathData="M345,64 L338,83" />
+            
+            <path
+                android:strokeColor="@color/scale_green"
+                android:strokeWidth="6"
+                android:pathData="M386,79 L371,94" />
+            
+            <path
+                android:strokeColor="@color/scale_green"
+                android:strokeWidth="6"
+                android:pathData="M424,101 L409,116" />
+            
+            <path
+                android:strokeColor="@color/scale_green"
+                android:strokeWidth="6"
+                android:pathData="M454,131 L439,146" />
+            
+            <path
+                android:strokeColor="@color/scale_green"
+                android:strokeWidth="6"
+                android:pathData="M476,169 L461,184" />
+            
+            <path
+                android:strokeColor="@color/scale_green"
+                android:strokeWidth="6"
+                android:pathData="M491,214 L476,225" />
+            
+            <path
+                android:strokeColor="@color/scale_green"
+                android:strokeWidth="6"
+                android:pathData="M499,266 L484,274" />
+            
+            <path
+                android:strokeColor="@color/scale_green"
+                android:strokeWidth="6"
+                android:pathData="M491,319 L476,311" />
+            
+            <path
+                android:strokeColor="@color/scale_green"
+                android:strokeWidth="6"
+                android:pathData="M476,368 L461,356" />
+            
+            <path
+                android:strokeColor="@color/scale_green"
+                android:strokeWidth="6"
+                android:pathData="M454,416 L439,401" />
+            
+            <path
+                android:strokeColor="@color/scale_green"
+                android:strokeWidth="6"
+                android:pathData="M424,461 L409,446" />
+            
+            <path
+                android:strokeColor="@color/scale_green"
+                android:strokeWidth="6"
+                android:pathData="M386,499 L371,484" />
+            
+            <path
+                android:strokeColor="@color/scale_green"
+                android:strokeWidth="6"
+                android:pathData="M345,529 L338,514" />
+            
+            <path
+                android:strokeColor="@color/scale_green"
+                android:strokeWidth="6"
+                android:pathData="M345,551 L338,532" />
+            
+            <!-- Minor tick marks (every 10 units between major ones) -->
+            <!-- Bottom section minor ticks -->
+            <path
+                android:strokeColor="@color/scale_green"
+                android:strokeWidth="3"
+                android:pathData="M270,580 L275,565" />
+            
+            <path
+                android:strokeColor="@color/scale_green"
+                android:strokeWidth="3"
+                android:pathData="M330,580 L325,565" />
+            
+            <!-- Left section minor ticks -->
+            <path
+                android:strokeColor="@color/scale_green"
+                android:strokeWidth="3"
+                android:pathData="M90,400 L105,395" />
+            
+            <path
+                android:strokeColor="@color/scale_green"
+                android:strokeWidth="3"
+                android:pathData="M15,300 L35,300" />
+            
+            <path
+                android:strokeColor="@color/scale_green"
+                android:strokeWidth="3"
+                android:pathData="M90,200 L105,205" />
+            
+            <!-- Top section minor ticks -->
+            <path
+                android:strokeColor="@color/scale_green"
+                android:strokeWidth="3"
+                android:pathData="M270,20 L275,35" />
+            
+            <path
+                android:strokeColor="@color/scale_green"
+                android:strokeWidth="3"
+                android:pathData="M330,20 L325,35" />
+            
+            <!-- Right section minor ticks -->
+            <path
+                android:strokeColor="@color/scale_green"
+                android:strokeWidth="3"
+                android:pathData="M510,400 L495,395" />
+            
+            <path
+                android:strokeColor="@color/scale_green"
+                android:strokeWidth="3"
+                android:pathData="M585,300 L565,300" />
+            
+            <path
+                android:strokeColor="@color/scale_green"
+                android:strokeWidth="3"
+                android:pathData="M510,200 L495,205" />
+            
+        </vector>
+    </item>
+    
+</layer-list>
