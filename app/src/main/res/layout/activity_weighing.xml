@@ -22,15 +22,15 @@
 
         <!-- Scale Circle Container -->
         <FrameLayout
-            android:layout_width="900dp"
-            android:layout_height="900dp"
+            android:layout_width="600dp"
+            android:layout_height="600dp"
             android:layout_gravity="center">
 
             <!-- Custom Java-drawn Scale Dashboard -->
             <com.example.ui.ScaleDashboardView
                 android:id="@+id/scale_dashboard"
-                android:layout_width="900dp"
-                android:layout_height="900dp"
+                android:layout_width="600dp"
+                android:layout_height="600dp"
                 android:layout_gravity="center" />
 
             <!-- Center Text -->
@@ -40,13 +40,13 @@
                 android:layout_gravity="center"
                 android:orientation="vertical"
                 android:gravity="center"
-                android:layout_marginTop="150dp">
+                android:layout_marginTop="100dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/net_weight"
-                    android:textSize="42sp"
+                    android:textSize="32sp"
                     android:textColor="@color/black"
                     android:textStyle="bold" />
 
@@ -55,48 +55,91 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="0.000 kg"
-                    android:textSize="54sp"
+                    android:textSize="40sp"
                     android:textColor="@color/black"
                     android:textStyle="bold"
-                    android:layout_marginTop="8dp" />
+                    android:layout_marginTop="6dp" />
 
             </LinearLayout>
 
         </FrameLayout>
 
-        <!-- Mode Buttons -->
+        <!-- Status Indicators with Circles -->
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="25dp"
             android:gravity="center">
 
-            <Button
-                android:id="@+id/btn_stable"
-                android:layout_width="80dp"
-                android:layout_height="50dp"
-                android:text="@string/stable"
-                android:textSize="14sp"
-                android:background="@drawable/mode_button_selector"
-                android:layout_marginRight="20dp" />
+            <!-- 稳定 -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginHorizontal="20dp">
 
-            <Button
-                android:id="@+id/btn_net"
-                android:layout_width="80dp"
-                android:layout_height="50dp"
-                android:text="@string/net_weight"
-                android:textSize="14sp"
-                android:background="@drawable/mode_button_selector"
-                android:layout_marginRight="20dp" />
+                <View
+                    android:layout_width="12dp"
+                    android:layout_height="12dp"
+                    android:background="@drawable/status_circle_gray"
+                    android:layout_marginRight="8dp" />
 
-            <Button
-                android:id="@+id/btn_zero"
-                android:layout_width="80dp"
-                android:layout_height="50dp"
-                android:text="@string/zero"
-                android:textSize="14sp"
-                android:background="@drawable/mode_button_selector" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/stable"
+                    android:textSize="16sp"
+                    android:textColor="@color/black" />
+
+            </LinearLayout>
+
+            <!-- 净重 -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginHorizontal="20dp">
+
+                <View
+                    android:layout_width="12dp"
+                    android:layout_height="12dp"
+                    android:background="@drawable/status_circle_green"
+                    android:layout_marginRight="8dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/net_weight"
+                    android:textSize="16sp"
+                    android:textColor="@color/black" />
+
+            </LinearLayout>
+
+            <!-- 零位 -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginHorizontal="20dp">
+
+                <View
+                    android:layout_width="12dp"
+                    android:layout_height="12dp"
+                    android:background="@drawable/status_circle_gray"
+                    android:layout_marginRight="8dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/zero"
+                    android:textSize="16sp"
+                    android:textColor="@color/black" />
+
+            </LinearLayout>
 
         </LinearLayout>
 
@@ -105,66 +148,65 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="40dp">
+            android:layout_marginTop="30dp"
+            android:gravity="center">
 
-            <!-- Tare Weight -->
+            <!-- Tare Weight (皮) -->
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:background="@drawable/weight_display_background"
-                android:padding="15dp"
-                android:layout_marginRight="30dp">
+                android:gravity="center_vertical"
+                android:layout_marginRight="40dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/tare_weight"
-                    android:textSize="18sp"
+                    android:textSize="28sp"
                     android:textColor="@color/white"
                     android:textStyle="bold"
                     android:background="@color/text_gray"
-                    android:padding="8dp" />
+                    android:padding="12dp"
+                    android:layout_marginRight="15dp" />
 
                 <TextView
                     android:id="@+id/tv_tare_weight"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="0.000 kg"
-                    android:textSize="24sp"
+                    android:textSize="32sp"
                     android:textColor="@color/black"
-                    android:textStyle="bold"
-                    android:layout_marginLeft="10dp" />
+                    android:textStyle="bold" />
 
             </LinearLayout>
 
-            <!-- Gross Weight -->
+            <!-- Gross Weight (总) -->
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:background="@drawable/weight_display_background"
-                android:padding="15dp">
+                android:gravity="center_vertical">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/gross_weight"
-                    android:textSize="18sp"
+                    android:textSize="28sp"
                     android:textColor="@color/white"
                     android:textStyle="bold"
                     android:background="@color/text_gray"
-                    android:padding="8dp" />
+                    android:padding="12dp"
+                    android:layout_marginRight="15dp" />
 
                 <TextView
                     android:id="@+id/tv_gross_weight"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="0.000 kg"
-                    android:textSize="24sp"
+                    android:textSize="32sp"
                     android:textColor="@color/black"
-                    android:textStyle="bold"
-                    android:layout_marginLeft="10dp" />
+                    android:textStyle="bold" />
 
             </LinearLayout>
 

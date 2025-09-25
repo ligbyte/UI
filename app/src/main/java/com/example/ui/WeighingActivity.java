@@ -24,11 +24,6 @@ public class WeighingActivity extends AppCompatActivity {
     private TextView tvTotalPrice;
     private ScaleDashboardView scaleDashboard;
     
-    // Mode buttons
-    private Button btnStable;
-    private Button btnNet;
-    private Button btnZero;
-    
     // Keypad buttons
     private Button[] keypadButtons = new Button[12];
     
@@ -77,11 +72,6 @@ public class WeighingActivity extends AppCompatActivity {
         tvTotalPrice = findViewById(R.id.tv_total_price);
         scaleDashboard = findViewById(R.id.scale_dashboard);
         
-        // Mode buttons
-        btnStable = findViewById(R.id.btn_stable);
-        btnNet = findViewById(R.id.btn_net);
-        btnZero = findViewById(R.id.btn_zero);
-        
         // Keypad buttons
         keypadButtons[0] = findViewById(R.id.btn_1);
         keypadButtons[1] = findViewById(R.id.btn_2);
@@ -107,32 +97,11 @@ public class WeighingActivity extends AppCompatActivity {
         // Set initial needle position to zero
         scaleDashboard.setWeight(0f);
         
-        // Set initial mode button selection (Net Weight mode)
-        setModeButtonSelection(btnNet);
+        // Start in net weight mode
+        isStable = false;
     }
     
     private void setupEventListeners() {
-        // Mode button listeners
-        btnStable.setOnClickListener(v -> {
-            setModeButtonSelection(btnStable);
-            isStable = true;
-            stopWeightSimulation();
-            Toast.makeText(this, "稳定模式", Toast.LENGTH_SHORT).show();
-        });
-        
-        btnNet.setOnClickListener(v -> {
-            setModeButtonSelection(btnNet);
-            isStable = false;
-            startWeightSimulation();
-            Toast.makeText(this, "净重模式", Toast.LENGTH_SHORT).show();
-        });
-        
-        btnZero.setOnClickListener(v -> {
-            setModeButtonSelection(btnZero);
-            zeroScale();
-            Toast.makeText(this, "零位模式", Toast.LENGTH_SHORT).show();
-        });
-        
         // Keypad listeners
         for (int i = 0; i < 10; i++) {
             final int digit = (i == 9) ? 0 : i + 1;
@@ -161,13 +130,7 @@ public class WeighingActivity extends AppCompatActivity {
         });
     }
     
-    private void setModeButtonSelection(Button selectedButton) {
-        btnStable.setSelected(false);
-        btnNet.setSelected(false);
-        btnZero.setSelected(false);
-        selectedButton.setSelected(true);
-    }
-    
+
     private void startWeightSimulation() {
         if (isSimulatingWeight) return;
         
