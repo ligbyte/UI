@@ -10,6 +10,6 @@
     <color name="scale_green">#FF8BC34A</color>
     <color name="scale_dark_green">#FF689F38</color>
     <color name="scale_background">#FFF5F5F5</color>
-    <color name="keypad_background">#FFFFFFFF</color>
-    <color name="keypad_border">#FFE0E0E0</color>
+    <color name="keypad_background">#FFFAFAFA</color>
+    <color name="keypad_border">#FFDDE7E7</color>
 </resources>
