@@ -152,7 +152,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="690dp"
+            android:layout_marginTop="720dp"
             android:gravity="center">
 
             <!-- Tare Weight (皮) -->
@@ -170,8 +170,11 @@
                     android:textSize="28sp"
                     android:textColor="@color/white"
                     android:textStyle="bold"
-                    android:background="@color/text_gray"
-                    android:padding="12dp"
+                    android:background="@drawable/square_background_translucent_black"
+                    android:paddingTop="3dp"
+                    android:paddingBottom="3dp"
+                    android:paddingLeft="6dp"
+                    android:paddingRight="6dp"
                     android:layout_marginRight="15dp" />
 
                 <TextView
@@ -199,8 +202,11 @@
                     android:textSize="28sp"
                     android:textColor="@color/white"
                     android:textStyle="bold"
-                    android:background="@color/text_gray"
-                    android:padding="12dp"
+                    android:background="@drawable/square_background_translucent_black"
+                    android:paddingTop="3dp"
+                    android:paddingBottom="3dp"
+                    android:paddingLeft="6dp"
+                    android:paddingRight="6dp"
                     android:layout_marginRight="15dp" />
 
                 <TextView
