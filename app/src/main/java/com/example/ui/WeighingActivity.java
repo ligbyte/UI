@@ -177,9 +177,9 @@ public class WeighingActivity extends AppCompatActivity {
             public void run() {
                 if (!isStable && isSimulatingWeight) {
                     // Simulate weight fluctuation for 0-150kg scale
-                    // Generate weights across the full scale range for testing
-                    double baseWeight = random.nextDouble() * 150.0; // 0 to 150kg
-                    double fluctuation = (random.nextDouble() - 0.5) * 1.0; // ±0.5 kg
+                    // Generate weights in a more reasonable range for testing alignment
+                    double baseWeight = 5.0 + (random.nextDouble() * 50.0); // 5 to 55kg for easier verification
+                    double fluctuation = (random.nextDouble() - 0.5) * 2.0; // ±1.0 kg
                     currentWeight = Math.max(0, Math.min(150.0, baseWeight + fluctuation));
                     
                     updateWeightDisplays();

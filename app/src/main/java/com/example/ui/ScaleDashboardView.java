@@ -274,7 +274,9 @@ public class ScaleDashboardView extends View {
         canvas.save();
         
         // Rotate canvas to needle angle
-        canvas.rotate(needleAngle - 90f, CENTER_X, CENTER_Y);
+        // Since the needle is drawn pointing upward (-Y direction) and 0° is at 3 o'clock,
+        // we need to add 90° to align properly
+        canvas.rotate(needleAngle + 90f, CENTER_X, CENTER_Y);
         
         // Create smooth needle path
         Path needlePath = new Path();
