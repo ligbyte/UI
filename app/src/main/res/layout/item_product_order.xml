@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:layout_marginBottom="1sp"
+    android:padding="12dp">
+
+    <!-- Product Image -->
+    <ImageView
+        android:id="@+id/iv_product"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:background="@drawable/rounded_corner_8dp"
+        android:scaleType="centerCrop"
+        android:layout_alignParentLeft="true"
+        android:layout_marginRight="12dp" />
+
+    <!-- Product Details Container -->
+    <LinearLayout
+        android:id="@+id/layout_product_details"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/iv_product"
+        android:layout_toLeftOf="@id/layout_order_info"
+        android:orientation="vertical"
+        android:layout_marginRight="16dp">
+
+        <!-- Product Name -->
+        <TextView
+            android:id="@+id/tv_product_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="五花肉"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="4dp" />
+
+        <!-- Product Info Row 1 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="2dp">
+
+            <TextView
+                android:id="@+id/tv_brand"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="品牌：牧原"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                android:layout_marginRight="16dp" />
+
+            <TextView
+                android:id="@+id/tv_quality"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="质量等级：新鲜一级"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                android:layout_marginRight="16dp" />
+
+            <TextView
+                android:id="@+id/tv_unit_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="单价：8.30 元/斤"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+        <!-- Product Info Row 2 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_origin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="产地：河南南阳"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                android:layout_marginRight="16dp" />
+
+            <TextView
+                android:id="@+id/tv_packaging"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="包装规格：散装"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Order Info Container -->
+    <LinearLayout
+        android:id="@+id/layout_order_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_toLeftOf="@id/layout_photos"
+        android:layout_centerVertical="true">
+
+        <!-- Order Quantity Section -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginRight="16dp"
+            android:minWidth="100dp">
+
+            <TextView
+                android:id="@+id/tv_order_quantity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="订单数量：20.00斤"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                android:layout_marginBottom="2dp" />
+
+            <TextView
+                android:id="@+id/tv_verified_quantity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="复核数量：19.00斤"
+                android:textColor="@color/button_blue"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+        <!-- Order Amount Section -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginRight="16dp"
+            android:minWidth="100dp">
+
+            <TextView
+                android:id="@+id/tv_order_amount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="订单金额：¥166.00"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                android:layout_marginBottom="2dp" />
+
+            <TextView
+                android:id="@+id/tv_verified_amount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="复核金额：¥157.70"
+                android:textColor="@color/button_blue"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Photo Section -->
+    <LinearLayout
+        android:id="@+id/layout_photos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true">
+
+        <!-- Photo 1 -->
+        <FrameLayout
+            android:layout_width="107dp"
+            android:layout_height="60dp"
+            android:background="@drawable/rounded_corner_8dp"
+            android:layout_marginRight="8dp">
+
+            <ImageView
+                android:id="@+id/iv_photo1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:layout_gravity="top|start"
+                android:background="@drawable/rounded_corner_8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="商品照片"
+                android:textColor="@color/white"
+                android:textSize="10sp"
+                android:layout_gravity="top|start"
+                android:layout_marginBottom="4dp"
+                android:background="#13000000"
+                android:padding="5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"/>
+
+        </FrameLayout>
+
+        <!-- Photo 2 or Restock Button -->
+        <FrameLayout
+            android:id="@+id/layout_photo2_container"
+            android:layout_width="107dp"
+            android:layout_height="60dp"
+            android:background="@drawable/rounded_corner_8dp">
+
+            <ImageView
+                android:id="@+id/iv_photo2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:layout_gravity="top|start"
+                android:background="@drawable/rounded_corner_8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="包装照片"
+                android:textColor="@color/white"
+                android:textSize="10sp"
+                android:layout_gravity="top|start"
+                android:layout_marginBottom="4dp"
+                android:background="#13000000"
+                android:padding="5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"/>
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
