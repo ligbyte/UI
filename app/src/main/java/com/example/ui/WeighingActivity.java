@@ -219,48 +219,61 @@ public class WeighingActivity extends AppCompatActivity {
     }
     
     private void performTare() {
-        tareWeight = currentWeight;
-        currentWeight = 0.000;
+        tareWeight = -currentWeight;
         updateWeightDisplays();
         calculateTotalPrice();
-        Toast.makeText(this, "已去皮: " + weightFormat.format(tareWeight) + " kg", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "皮重已设置", Toast.LENGTH_SHORT).show();
     }
     
     private void performZero() {
         zeroScale();
-        Toast.makeText(this, "已置零", Toast.LENGTH_SHORT).show();
-    }
-    
-    private void startPriceInput() {
-        isInputtingPrice = true;
-        priceInput.setLength(0);
-        tvUnitPrice.setBackgroundColor(getResources().getColor(R.color.scale_green));
-        tvUnitPrice.setTextColor(getResources().getColor(R.color.white));
-        Toast.makeText(this, "请输入单价，按X完成输入", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "已归零", Toast.LENGTH_SHORT).show();
     }
     
     private void onNumberPressed(String number) {
-        if (isInputtingPrice) {
-            if (number.equals(".") && priceInput.toString().contains(".")) {
-                return; // Don't allow multiple dots
-            }
-            
-            if (priceInput.length() < 8) { // Limit input length
-                priceInput.append(number);
-                tvUnitPrice.setText(priceInput.toString());
-            }
+        if (!isInputtingPrice) return;
+        
+        if (priceInput.length() < 8) { // Limit input length
+            priceInput.append(number);
+            updatePriceInput();
         }
     }
     
     private void onClearPressed() {
         if (isInputtingPrice) {
-            finishPriceInput();
-        } else {
-            // Clear last digit of price input or perform other clear operations
             if (priceInput.length() > 0) {
                 priceInput.deleteCharAt(priceInput.length() - 1);
-                tvUnitPrice.setText(priceInput.toString());
+                updatePriceInput();
+            } else {
+                finishPriceInput();
             }
+        } else {
+            // Clear current weight simulation
+            stopWeightSimulation();
+            currentWeight = 0.000;
+            updateWeightDisplays();
+            updateNeedlePosition();
+            calculateTotalPrice();
+        }
+    }
+    
+    private void startPriceInput() {
+        isInputtingPrice = true;
+        priceInput.setLength(0);
+        tvUnitPrice.setBackgroundColor(0xFF0078D4); // Highlight input
+        tvUnitPrice.setTextColor(0xFFFFFFFF);
+        Toast.makeText(this, "请输入单价", Toast.LENGTH_SHORT).show();
+    }
+    
+    private void updatePriceInput() {
+        try {
+            String inputText = priceInput.toString();
+            if (!inputText.isEmpty()) {
+                double price = Double.parseDouble(inputText);
+                tvUnitPrice.setText(priceFormat.format(price));
+            }
+        } catch (NumberFormatException e) {
+            // Handle invalid input
         }
     }
     
@@ -268,23 +281,22 @@ public class WeighingActivity extends AppCompatActivity {
         isInputtingPrice = false;
         
         try {
-            if (priceInput.length() > 0) {
-                unitPrice = Double.parseDouble(priceInput.toString());
-            } else {
-                unitPrice = 0.00;
+            String inputText = priceInput.toString();
+            if (!inputText.isEmpty()) {
+                unitPrice = Double.parseDouble(inputText);
             }
         } catch (NumberFormatException e) {
             unitPrice = 0.00;
-            Toast.makeText(this, "输入格式错误，已重置为0.00", Toast.LENGTH_SHORT).show();
         }
         
-        tvUnitPrice.setBackgroundColor(getResources().getColor(R.color.white));
-        tvUnitPrice.setTextColor(getResources().getColor(R.color.black));
+        // Reset appearance
+        tvUnitPrice.setBackgroundColor(0x00000000); // Transparent
+        tvUnitPrice.setTextColor(0xFF000000); // Black text
         
         updatePriceDisplays();
         calculateTotalPrice();
         
-        Toast.makeText(this, "单价设置为: " + priceFormat.format(unitPrice) + " 元/kg", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "单价已设置", Toast.LENGTH_SHORT).show();
     }
     
     private void calculateTotalPrice() {

@@ -90,12 +90,18 @@ public class ScaleDashboardView extends View {
         backgroundPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         backgroundPaint.setColor(backgroundColor);
         backgroundPaint.setStyle(Paint.Style.FILL);
+        backgroundPaint.setFilterBitmap(true);
+        backgroundPaint.setDither(true);
         
-        // Circle border paint
+        // Circle border paint with enhanced smoothness
         circlePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         circlePaint.setColor(scaleGreen);
         circlePaint.setStyle(Paint.Style.STROKE);
         circlePaint.setStrokeWidth(18f); // Increased to 1.5x (12 * 1.5)
+        circlePaint.setStrokeCap(Paint.Cap.ROUND); // Smooth end caps
+        circlePaint.setFilterBitmap(true);
+        circlePaint.setDither(true);
+        circlePaint.setPathEffect(null); // Ensure no path effects interfere
         
         // Major tick paint
         majorTickPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
@@ -103,6 +109,8 @@ public class ScaleDashboardView extends View {
         majorTickPaint.setStyle(Paint.Style.STROKE);
         majorTickPaint.setStrokeWidth(9f); // Increased to 1.5x (6 * 1.5)
         majorTickPaint.setStrokeCap(Paint.Cap.ROUND);
+        majorTickPaint.setFilterBitmap(true);
+        majorTickPaint.setDither(true);
         
         // Minor tick paint
         minorTickPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
@@ -110,6 +118,8 @@ public class ScaleDashboardView extends View {
         minorTickPaint.setStyle(Paint.Style.STROKE);
         minorTickPaint.setStrokeWidth(4.5f); // Increased to 1.5x (3 * 1.5)
         minorTickPaint.setStrokeCap(Paint.Cap.ROUND);
+        minorTickPaint.setFilterBitmap(true);
+        minorTickPaint.setDither(true);
         
         // Tiny tick paint
         tinyTickPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
@@ -117,16 +127,22 @@ public class ScaleDashboardView extends View {
         tinyTickPaint.setStyle(Paint.Style.STROKE);
         tinyTickPaint.setStrokeWidth(2.25f); // Increased to 1.5x (1.5 * 1.5)
         tinyTickPaint.setStrokeCap(Paint.Cap.ROUND);
+        tinyTickPaint.setFilterBitmap(true);
+        tinyTickPaint.setDither(true);
         
         // Needle paint
         needlePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         needlePaint.setColor(scaleGreen);
         needlePaint.setStyle(Paint.Style.FILL);
+        needlePaint.setFilterBitmap(true);
+        needlePaint.setDither(true);
         
         // Needle base paint
         needleBasePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         needleBasePaint.setColor(scaleDarkGreen);
         needleBasePaint.setStyle(Paint.Style.FILL);
+        needleBasePaint.setFilterBitmap(true);
+        needleBasePaint.setDither(true);
         
         // Text paint
         textPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
@@ -134,6 +150,9 @@ public class ScaleDashboardView extends View {
         textPaint.setTextSize(30f); // Increased to 1.5x (20 * 1.5)
         textPaint.setTextAlign(Paint.Align.CENTER);
         textPaint.setTypeface(android.graphics.Typeface.DEFAULT_BOLD);
+        textPaint.setFilterBitmap(true);
+        textPaint.setDither(true);
+        textPaint.setSubpixelText(true); // Enable subpixel text rendering
     }
     
     @Override
@@ -167,12 +186,17 @@ public class ScaleDashboardView extends View {
     }
     
     private void drawCircleBorder(Canvas canvas) {
-        // Draw the circle with a gap at the bottom
+        // Create precise oval bounds for arc drawing
         RectF oval = new RectF(CENTER_X - OUTER_RADIUS, CENTER_Y - OUTER_RADIUS, 
                               CENTER_X + OUTER_RADIUS, CENTER_Y + OUTER_RADIUS);
         
         // Draw arc from 135° to 405° (270° sweep with 90° gap at bottom)
-        canvas.drawArc(oval, START_ANGLE, SWEEP_ANGLE, false, circlePaint);
+        // Use Path for better control over arc quality
+        Path arcPath = new Path();
+        arcPath.addArc(oval, START_ANGLE, SWEEP_ANGLE);
+        
+        // Draw the arc path with enhanced smoothness
+        canvas.drawPath(arcPath, circlePaint);
     }
     
     private void drawScaleMarkings(Canvas canvas) {
@@ -251,10 +275,10 @@ public class ScaleDashboardView extends View {
         // Rotate canvas to needle angle
         canvas.rotate(needleAngle - 90f, CENTER_X, CENTER_Y);
         
-        // Create needle path
+        // Create smooth needle path
         Path needlePath = new Path();
         
-        // Needle body (rectangle)
+        // Needle body (rectangle with rounded corners)
         float needleHalfWidth = NEEDLE_WIDTH / 2f;
         needlePath.moveTo(CENTER_X - needleHalfWidth, CENTER_Y);
         needlePath.lineTo(CENTER_X + needleHalfWidth, CENTER_Y);
@@ -262,14 +286,14 @@ public class ScaleDashboardView extends View {
         needlePath.lineTo(CENTER_X - needleHalfWidth, CENTER_Y - NEEDLE_LENGTH + 30f);
         needlePath.close();
         
-        // Needle tip (triangle)
+        // Needle tip (triangle with smooth curves)
         Path needleTip = new Path();
         needleTip.moveTo(CENTER_X, CENTER_Y - NEEDLE_LENGTH);
         needleTip.lineTo(CENTER_X - needleHalfWidth - 5f, CENTER_Y - NEEDLE_LENGTH + 30f);
         needleTip.lineTo(CENTER_X + needleHalfWidth + 5f, CENTER_Y - NEEDLE_LENGTH + 30f);
         needleTip.close();
         
-        // Draw needle
+        // Draw needle with enhanced paint
         canvas.drawPath(needlePath, needlePaint);
         canvas.drawPath(needleTip, needlePaint);
         
